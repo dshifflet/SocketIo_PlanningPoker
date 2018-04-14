@@ -133,6 +133,7 @@
 
     this.changeName = function (txt) {
         document.getElementById("gamename").value = txt;
+        self.showSnackBar(txt);
     }
 
     this.callGame = function () {
@@ -193,13 +194,26 @@
     this.gameStarted = function () {
         self.clearTable();
         self.dealCards();
+        self.showSnackBar("A new game has started!");
     };
 
     this.gameCalled = function () {
         var hand = document.getElementById("hand");
         hand.innerHTML = "";
         self.showCards();
+        self.showSnackBar("Game has been called!");
     };
+
+    this.showSnackBar = function (txt) {
+        // Get the snackbar DIV
+        var x = document.getElementById("snackbar");
+        x.innerText = txt;
+        // Add the "show" class to DIV
+        x.className = "show";
+
+        // After 3 seconds, remove the show class from DIV
+        setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
+    } 
 
     this.commands = [{
             command: "join",

@@ -39,7 +39,7 @@
         <div id="maingame" style="display:none;">
             <div id="start">
                 <button id="btnnewgame" class="button">New Game</button>
-                <button id="btncallgame" class="button">Call</button>
+                <button id="btncallgame" class="button">Call (Show Cards)</button>
             </div>
 
             <div id="game">
@@ -71,12 +71,18 @@
             </div>
         </div>
     </center>
+    <div id="snackbar"></div>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.1.0/socket.io.js"></script>
     <script type="text/javascript" src="js/poker.js"></script>
     <script type="text/javascript" src="js/animalIcons.js"></script>
     <script type="text/javascript">
         ready(start);
         var client;
+        var _gameNameKeyUp = function (event) {
+                if (event.keyCode == 13) {
+                    document.getElementById("btnnewgame").click();
+                }
+            };
 
         function startHost() {
             var name = document.getElementById("userName").value;
@@ -139,16 +145,13 @@
                 setTimeout(function () {
                     document.getElementById("gamename").focus();
                     document.getElementById("gamename").select();
-                    document.getElementById("gamename").addEventListener("keyup", function (event) {
-                        if (event.keyCode == 13) {
-                            document.getElementById("btnnewgame").click();
-                        }
-                    });
+                    document.getElementById("gamename").addEventListener("keyup", _gameNameKeyUp)
                 }, 0)
             } else {
                 document.getElementById("btnnewgame").style.display = "none";
                 document.getElementById("btncallgame").style.display = "none";
                 document.getElementById("gamename").readOnly = true;
+                document.getElementById("gamename").value = "Loading...";
                 document.getElementById("gamename").style.border = "none";
             }
             client = new PokerClient(id, name, host);
@@ -163,6 +166,9 @@
             });
             document.getElementById("btnnewgame").addEventListener("click", function () {
                 client.newGame();
+                document.getElementById("gamename").focus();
+                document.getElementById("gamename").select();
+                document.getElementById("gamename").removeEventListener("keyup", _gameNameKeyUp);
             });
             document.getElementById("gamename").addEventListener("change", function () {
                 client.nameChange();
@@ -175,6 +181,7 @@
             target.setSelectionRange(0, target.value.length);
             try {
                 document.execCommand("copy");
+                client.showSnackBar("URL Copied. Paste and tell others to go to this URL to join this game!");
             } catch (e) {
 
             }
