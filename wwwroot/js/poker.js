@@ -165,9 +165,42 @@
 
     this.showCards = function () {
         var elements = document.querySelectorAll(".playedcard");
+        var last = "";
+        var matched = 0;
         for (var i = 0; i < elements.length; i++) {
             splits = elements[i].id.split("_");
-            elements[i].innerHTML = "<p>" + splits[splits.length - 1] + "</p>";
+            newHtml = "<p>" + splits[splits.length - 1] + "</p>";
+            elements[i].innerHTML = newHtml;
+            if(last.length > 0 && last === newHtml){
+                matched++;
+            }
+            last = newHtml;
+        }
+        if(matched == elements.length - 1){
+            self.showSnackBar("CONGRATULATIONS!")
+            var originalColor = document.body.style.backgroundColor;
+            for(var i = 1; i< 10; i++) {
+                if(i == 9){
+                    setTimeout(function(){ 
+                        document.body.style.backgroundColor = originalColor;
+                        document.getElementById("snackbar").style.color = "white";
+                    }, 250 * i);
+                }
+                else if(i % 2 === 0) {
+                    setTimeout(function(){ 
+                        document.body.style.backgroundColor = "#004924";
+                        document.getElementById("snackbar").style.color = "red";
+                    }, 250 * i);
+                        
+                }
+                else{
+                    setTimeout(function(){ 
+                        document.body.style.backgroundColor = "#00a852";
+                        document.getElementById("snackbar").style.color = "yellow";
+                    }, 250 * i);
+                    
+                }
+            }
         }
     };
 
@@ -207,6 +240,9 @@
     this.showSnackBar = function (txt) {
         // Get the snackbar DIV
         var x = document.getElementById("snackbar");
+        if(x.className === "show") {
+            return;
+        }
         x.innerText = txt;
         // Add the "show" class to DIV
         x.className = "show";
