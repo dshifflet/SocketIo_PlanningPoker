@@ -1,7 +1,7 @@
 # Planning Poker over socket.io
 
-* THIS IS A WORK IN PROGRESS *
-I took the previous one using PeerJS and changed it around to work with socket.io.
+* THIS IS A WORK IN PROGRESS
+* I took the previous one using PeerJS and changed it around to work with socket.io.
 This might help with NAT traversal
 
 ## Usage
