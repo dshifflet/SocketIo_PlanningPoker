@@ -24,8 +24,7 @@ io.on('connection', function(socket){
         }
         catch (ex) {
             //empty
-        }
-        io.emit('poker message', msg);
+        }        
       });
 
     socket.on('disconnect', function(){
