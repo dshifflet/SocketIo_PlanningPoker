@@ -4,7 +4,7 @@ const http = require('http');
 
 app.use('/', express.static("wwwroot"));
 
-const server = app.listen(3000, function(){
+const server = app.listen(process.env.PORT || 1337, function(){
     console.log('server is running at %s', server.address().port);
   });
 
