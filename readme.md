@@ -9,10 +9,6 @@ This might help with NAT traversal
 * Or download it and node start or nodemon
 * It will host the socket.io and the static stuff via Express
 
-
-## PROBLEMS
-* Only works right with Firefox and Chrome
-
 ## What it looks like
 ![alt text](https://raw.githubusercontent.com/dshifflet/PeerJS_PlanningPoker/master/imgs/screenshot.png "Example Screen Shot")
 
