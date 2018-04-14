@@ -1,6 +1,6 @@
-animalIcons =  function() {
+animalIcons = function () {
 	var self = this;
-	
+
 	this.animals = [
 		"&#x1F400;",
 		"&#x1F401;",
@@ -72,11 +72,10 @@ animalIcons =  function() {
 		"&#x1F43C;",
 		"&#x1F43D;"
 	];
-	
-	
-	this.getRandom = function() {
+
+
+	this.getRandom = function () {
 		var idx = Math.floor((Math.random() * this.animals.length));
 		return this.animals[idx];
 	}
 };
- 

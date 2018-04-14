@@ -1,8 +1,8 @@
 ﻿PokerClient = function (id, user, host) {
     var self = this;
-    
+
     this.socket = io();
-    
+
     this.id = id;
     this.ready = false;
     this.user = user;
@@ -17,9 +17,9 @@
         self.processMessage(msg);
     });
 
-    this.processMessage = function (data) {        
+    this.processMessage = function (data) {
         var msg = JSON.parse(data);
-        if(msg.to !== self.id) {
+        if (msg.to !== self.id) {
             return;
         }
         for (var i = 0; i < self.commands.length; i++) {
@@ -33,7 +33,7 @@
     this.sendMessage = function (destination, command, parameters) {
         var msg = {
             to: destination,
-            room : self.host,
+            room: self.host,
             from: self.id,
             command: command,
             parameters: parameters
@@ -53,7 +53,7 @@
         }
         //todo dry
         var msg = {
-            room : self.host,
+            room: self.host,
             from: self.id,
             command: command,
             parameters: parameters
@@ -171,34 +171,32 @@
             splits = elements[i].id.split("_");
             newHtml = "<p>" + splits[splits.length - 1] + "</p>";
             elements[i].innerHTML = newHtml;
-            if(last.length > 0 && last === newHtml){
+            if (last.length > 0 && last === newHtml) {
                 matched++;
             }
             last = newHtml;
         }
-        if(matched == elements.length - 1){
+        if (matched == elements.length - 1 && elements.length > 1) {
             self.showSnackBar("CONGRATULATIONS!")
             var originalColor = document.body.style.backgroundColor;
-            for(var i = 1; i< 10; i++) {
-                if(i == 9){
-                    setTimeout(function(){ 
+            for (var i = 1; i < 10; i++) {
+                if (i == 9) {
+                    setTimeout(function () {
                         document.body.style.backgroundColor = originalColor;
                         document.getElementById("snackbar").style.color = "white";
                     }, 250 * i);
-                }
-                else if(i % 2 === 0) {
-                    setTimeout(function(){ 
+                } else if (i % 2 === 0) {
+                    setTimeout(function () {
                         document.body.style.backgroundColor = "#004924";
                         document.getElementById("snackbar").style.color = "red";
                     }, 250 * i);
-                        
-                }
-                else{
-                    setTimeout(function(){ 
+
+                } else {
+                    setTimeout(function () {
                         document.body.style.backgroundColor = "#00a852";
                         document.getElementById("snackbar").style.color = "yellow";
                     }, 250 * i);
-                    
+
                 }
             }
         }
@@ -240,7 +238,7 @@
     this.showSnackBar = function (txt) {
         // Get the snackbar DIV
         var x = document.getElementById("snackbar");
-        if(x.className === "show") {
+        if (x.className === "show") {
             return;
         }
         x.innerText = txt;
@@ -248,8 +246,10 @@
         x.className = "show";
 
         // After 3 seconds, remove the show class from DIV
-        setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
-    } 
+        setTimeout(function () {
+            x.className = x.className.replace("show", "");
+        }, 3000);
+    }
 
     this.commands = [{
             command: "join",

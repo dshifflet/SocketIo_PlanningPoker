@@ -2,7 +2,7 @@ body {
     background: #00a651;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     color: white;
-    font-weight:bold;
+    font-weight: bold;
 }
 
 h1 {
@@ -11,7 +11,7 @@ h1 {
     font-weight: bold;
     color: yellow;
     font-size: 32px;
-    text-shadow: 2px 2px rgba(0,0,0,0.3);
+    text-shadow: 2px 2px rgba(0, 0, 0, 0.3);
 }
 
 h2 {
@@ -20,7 +20,7 @@ h2 {
     font-weight: bold;
     color: yellow;
     font-size: 24px;
-    text-shadow: 2px 2px rgba(0,0,0,0.3);
+    text-shadow: 2px 2px rgba(0, 0, 0, 0.3);
 }
 
 .cardbackground {
@@ -42,8 +42,8 @@ h2 {
     height: 100px;
     border-radius: 10px;
     background: #fff;
-    -webkit-box-shadow: 3px 3px 7px rgba(0,0,0,0.3);
-    box-shadow: 3px 3px 7px rgba(0,0,0,0.3);
+    -webkit-box-shadow: 3px 3px 7px rgba(0, 0, 0, 0.3);
+    box-shadow: 3px 3px 7px rgba(0, 0, 0, 0.3);
 }
 
 .card p {
@@ -61,7 +61,7 @@ h2 {
     font-weight: bold;
     color: white;
     font-size: 20px;
-    text-shadow: 2px 2px rgba(0,0,0,0.3);
+    text-shadow: 2px 2px rgba(0, 0, 0, 0.3);
 }
 
 .title {
@@ -70,7 +70,7 @@ h2 {
     font-weight: bold;
     color: yellow;
     font-size: 32px;
-    text-shadow: 2px 2px rgba(0,0,0,0.3);
+    text-shadow: 2px 2px rgba(0, 0, 0, 0.3);
 }
 
 .textlabel {
@@ -79,17 +79,18 @@ h2 {
     font-weight: bold;
     color: white;
     font-size: 16px;
-    text-shadow: 2px 2px rgba(0,0,0,0.3);
+    text-shadow: 2px 2px rgba(0, 0, 0, 0.3);
     background-color: transparent;
     border: none;
 }
+
 .textentry {
     display: block;
     text-align: center;
     font-weight: bold;
     color: white;
     font-size: 16px;
-    text-shadow: 2px 2px rgba(0,0,0,0.3);
+    text-shadow: 2px 2px rgba(0, 0, 0, 0.3);
     background-color: transparent;
     border: 2px dotted yellow;
 }
@@ -100,7 +101,7 @@ h2 {
     font-weight: bold;
     color: gold;
     font-size: 16px;
-    text-shadow: 2px 2px rgba(0,0,0,0.3);
+    text-shadow: 2px 2px rgba(0, 0, 0, 0.3);
 }
 
 #shareurl {
@@ -108,7 +109,7 @@ h2 {
     font-weight: bold;
     color: white;
     font-size: 16px;
-    text-shadow: 2px 2px rgba(0,0,0,0.3);
+    text-shadow: 2px 2px rgba(0, 0, 0, 0.3);
 }
 
 #gamename {
@@ -128,7 +129,8 @@ h2 {
     font-size: 16px;
     margin: 4px 2px;
     cursor: pointer;
-    -webkit-transition-duration: 0.4s; /* Safari */
+    -webkit-transition-duration: 0.4s;
+    /* Safari */
     transition-duration: 0.4s;
 }
 
@@ -142,50 +144,88 @@ h2 {
     transform: translateY(4px);
 }
 
-
 /* The snackbar - position it at the bottom and in the middle of the screen */
+
 #snackbar {
-    visibility: hidden; /* Hidden by default. Visible on click */
-    min-width: 250px; /* Set a default minimum width */
-    margin-left: -125px; /* Divide value of min-width by 2 */
-    background-color: #333; /* Black background color */
-    color: #fff; /* White text color */
-    text-align: center; /* Centered text */
-    border-radius: 2px; /* Rounded borders */
-    padding: 16px; /* Padding */
-    position: fixed; /* Sit on top of the screen */
-    z-index: 1; /* Add a z-index if needed */
-    left: 50%; /* Center the snackbar */
-    bottom: 30px; /* 30px from the bottom */
+    visibility: hidden;
+    /* Hidden by default. Visible on click */
+    min-width: 250px;
+    /* Set a default minimum width */
+    margin-left: -125px;
+    /* Divide value of min-width by 2 */
+    background-color: #333;
+    /* Black background color */
+    color: #fff;
+    /* White text color */
+    text-align: center;
+    /* Centered text */
+    border-radius: 2px;
+    /* Rounded borders */
+    padding: 16px;
+    /* Padding */
+    position: fixed;
+    /* Sit on top of the screen */
+    z-index: 1;
+    /* Add a z-index if needed */
+    left: 50%;
+    /* Center the snackbar */
+    bottom: 30px;
+    /* 30px from the bottom */
 }
 
 /* Show the snackbar when clicking on a button (class added with JavaScript) */
-#snackbar.show {
-    visibility: visible; /* Show the snackbar */
 
-/* Add animation: Take 0.5 seconds to fade in and out the snackbar.
+#snackbar.show {
+    visibility: visible;
+    /* Show the snackbar */
+    /* Add animation: Take 0.5 seconds to fade in and out the snackbar.
 However, delay the fade out process for 2.5 seconds */
     -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
     animation: fadein 0.5s, fadeout 0.5s 2.5s;
 }
 
 /* Animations to fade the snackbar in and out */
+
 @-webkit-keyframes fadein {
-    from {bottom: 0; opacity: 0;}
-    to {bottom: 30px; opacity: 1;}
+    from {
+        bottom: 0;
+        opacity: 0;
+    }
+    to {
+        bottom: 30px;
+        opacity: 1;
+    }
 }
 
 @keyframes fadein {
-    from {bottom: 0; opacity: 0;}
-    to {bottom: 30px; opacity: 1;}
+    from {
+        bottom: 0;
+        opacity: 0;
+    }
+    to {
+        bottom: 30px;
+        opacity: 1;
+    }
 }
 
 @-webkit-keyframes fadeout {
-    from {bottom: 30px; opacity: 1;}
-    to {bottom: 0; opacity: 0;}
+    from {
+        bottom: 30px;
+        opacity: 1;
+    }
+    to {
+        bottom: 0;
+        opacity: 0;
+    }
 }
 
 @keyframes fadeout {
-    from {bottom: 30px; opacity: 1;}
-    to {bottom: 0; opacity: 0;}
-} 
+    from {
+        bottom: 30px;
+        opacity: 1;
+    }
+    to {
+        bottom: 0;
+        opacity: 0;
+    }
+}
