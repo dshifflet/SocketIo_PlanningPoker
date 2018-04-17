@@ -144,8 +144,26 @@ h2 {
     transform: translateY(4px);
 }
 
-/* The snackbar - position it at the bottom and in the middle of the screen */
+.linkbox {
+    border-radius: 25px;
+    border: 2px dotted #73AD21;
+    padding: 20px;
+    width: 200px;
+    color: yellow;
+    border-color: #3e8e41;
+}
 
+/* unvisited link */
+.linkbox a:link {
+    color: green;
+}
+
+/* visited link */
+.linkbox a:visited {
+    color: green;
+}
+
+/* The snackbar - position it at the bottom and in the middle of the screen */
 #snackbar {
     visibility: hidden;
     /* Hidden by default. Visible on click */
