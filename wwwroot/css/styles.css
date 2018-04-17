@@ -147,6 +147,7 @@ h2 {
 .linkbox {
     border-radius: 25px;
     border: 2px dotted #73AD21;
+    margin-top: 60px;
     padding: 20px;
     width: 200px;
     color: yellow;
